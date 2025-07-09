@@ -92,4 +92,22 @@ const updateUser = async (req, res) => {
   }
 };
 
-export { register, login, showUsers, deleteUser, updateUser, profile };
+const updateProfile = async (req,res) => {
+  try{
+    const id = req.params.id;
+    const {firstName,lastName,email} = req.body;
+    const userObj = {
+      firstName,
+      lastName,
+      email
+    }
+    const result = await userModel.findByIdAndUpdate(id,userObj)
+    res.status(200).json(result);
+  }
+  catch(err){
+    console.log(err);
+    res.status(500).json({message:"something went wrong"});
+  } 
+}
+
+export { register, login, showUsers, deleteUser, updateUser, profile, updateProfile };

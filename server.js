@@ -16,7 +16,7 @@ const dbpass = encodeURIComponent(process.env.DBPASS)
 //     console.log("Server started");
 //   });
 // });
-mongoose.connect(`mongodb+srv://${dbuser}:${dbpass}@cluster0.d3eh4gl.mongodb.net/cafe-backend?retryWrites=true&w=majority&appName=cluster0`).then(() => {
+mongoose.connect(`mongodb+srv://${dbuser}:${dbpass}@cluster0.d3eh4gl.mongodb.net/mern-cafe?retryWrites=true&w=majority&appName=cluster0`).then(() => {
   app.listen(8000, () => {
     console.log("Server started");
   });
