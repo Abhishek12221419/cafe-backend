@@ -7,6 +7,7 @@ dotenv.config();
 import {authenticate, authorize} from "./middlewares/auth.js";
 
 const app = express();
+// app.use(cors())
 app.use(express.json());
 const dbuser = encodeURIComponent(process.env.DBUSER)
 const dbpass = encodeURIComponent(process.env.DBPASS)
@@ -16,7 +17,7 @@ const dbpass = encodeURIComponent(process.env.DBPASS)
 //     console.log("Server started");
 //   });
 // });
-mongoose.connect(`mongodb+srv://${dbuser}:${dbpass}@cluster0.d3eh4gl.mongodb.net/mern-cafe?retryWrites=true&w=majority&appName=cluster0`).then(() => {
+mongoose.connect(`mongodb+srv://${dbuser}:${dbpass}@cluster0.d3eh4gl.mongodb.net/merncafe?retryWrites=true&w=majority&appName=cluster0`).then(() => {
   app.listen(8000, () => {
     console.log("Server started");
   });
