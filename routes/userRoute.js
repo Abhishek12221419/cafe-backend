@@ -8,13 +8,15 @@ import {
   updateUser,
   deleteUser,
   showUsers,
-  updateProfile
+  updateProfile,
+  addUsers
 } from "../controllers/userController.js";
 Router.post("/register", register);
 Router.post("/login", login);
-Router.get("/showusers", authenticate, authorize("admin"), showUsers);
-Router.patch("/:id", authenticate, authorize("admin"), updateUser);
-Router.delete("/:id", authenticate, authorize("admin"), deleteUser);
+Router.get("/showUsers", showUsers);
+Router.patch("/:id", updateUser);
+Router.delete("/:id",deleteUser);
+Router.post("/addUsers", addUsers);
 Router.get("/:id/profile", authenticate, profile);
 Router.patch("/api/users/:id/profile",authenticate,updateProfile);
 export default Router;
