@@ -1,18 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
-import userRouter from "./routes/userRoute.js";
-import productRouter from "./routes/productRoute.js"
-import cors from "cors";
 import dotenv from "dotenv";
+import userRouter from "./routes/userRoute.js";
+import productRouter from "./routes/productRoute.js";
+import orderRouter from "./routes/orderRoute.js"
+import cors from "cors";
 dotenv.config();
-
-import {authenticate, authorize} from "./middlewares/auth.js";
-
 const app = express();
-app.use(cors())
+app.use(cors());
 app.use(express.json());
-const dbuser = encodeURIComponent(process.env.DBUSER)
-const dbpass = encodeURIComponent(process.env.DBPASS)
+
+const dbuser = encodeURIComponent(process.env.DBUSER);
+const dbpass = encodeURIComponent(process.env.DBPASS);
 
 mongoose.connect(`mongodb://localhost:27017/mern-cafe`).then(() => {
   app.listen(8000, () => {
@@ -25,5 +24,7 @@ mongoose.connect(`mongodb://localhost:27017/mern-cafe`).then(() => {
 //     console.log("Server started");
 //   });
 // });
+
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter)

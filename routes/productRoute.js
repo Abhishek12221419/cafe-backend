@@ -4,10 +4,12 @@ import { addProduct,showProducts,deleteProduct,updateProduct,getProduct,displayP
 const Router = express.Router();
 
 
-//admin routes
-Router.get("/showProducts", showProducts);
+//user 
 Router.get("/all", displayProducts);
-Router.post("/addProducts", addProduct);
+
+//admin
+Router.get("/", showProducts);
+Router.post("/", addProduct);
 Router.get("/:id", getProduct);
 Router.patch("/:id", updateProduct);
 Router.delete("/:id", deleteProduct);

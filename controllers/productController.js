@@ -79,4 +79,4 @@ const displayProducts = async (req, res) => {
   }
 };
 
-export { addProduct, deleteProduct, updateProduct, getProduct, showProducts, displayProducts };
+export { addProduct, deleteProduct, updateProduct, getProduct, showProducts,displayProducts };
